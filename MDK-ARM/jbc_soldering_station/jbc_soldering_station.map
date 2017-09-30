@@ -1857,7 +1857,7 @@ Image Symbol Table
     __scatterload_copy                       0x08001909   Thumb Code    14  handlers.o(i.__scatterload_copy)
     __scatterload_null                       0x08001917   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x08001919   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x08001929   Thumb Code    72  main.o(i.main)
+    main                                     0x08001929   Thumb Code    70  main.o(i.main)
     osDelay                                  0x08001985   Thumb Code    14  cmsis_os.o(i.osDelay)
     osKernelStart                            0x08001993   Thumb Code    10  cmsis_os.o(i.osKernelStart)
     osSystickHandler                         0x0800199d   Thumb Code    20  cmsis_os.o(i.osSystickHandler)
@@ -2103,7 +2103,7 @@ Image component sizes
        456         22          0         24      12228      15271   heap_4.o
        750        118          0          0        196       3776   init.o
        136          0          0          0          0       3298   list.o
-       104          8         32          4          0       5931   main.o
+       104         10         32          4          0       5931   main.o
        522         62          0         12          0      10028   port.o
          0          0          0          0          0      10540   queue.o
         36          8        236          0       1024        756   startup_stm32f103xb.o
@@ -2125,7 +2125,7 @@ Image component sizes
         64         20          0          0          0       1622   tm1637_periph.o
 
     ----------------------------------------------------------------------
-      9028        712        344        108      13756     603954   Object Totals
+      9028        714        344        108      13756     603954   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          3          0          4          0   (incl. Padding)
 
@@ -2165,9 +2165,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9152        728        344        108      13756     598418   Grand Totals
-      9152        728        344        108      13756     598418   ELF Image Totals
-      9152        728        344        108          0          0   ROM Totals
+      9152        730        344        108      13756     598418   Grand Totals
+      9152        730        344        108      13756     598418   ELF Image Totals
+      9152        730        344        108          0          0   ROM Totals
 
 ==============================================================================
 

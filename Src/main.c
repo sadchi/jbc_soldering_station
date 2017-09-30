@@ -26,7 +26,7 @@ int main(void) {
     MX_NVIC_Init();
 
     tm1637_init();
-    tm1637_display_dec(1134, 1);
+    tm1637_display_dec(134, 1);
 
     osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
