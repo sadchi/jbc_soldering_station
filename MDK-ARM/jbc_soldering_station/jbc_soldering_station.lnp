@@ -31,6 +31,8 @@
 "jbc_soldering_station\stm32f1xx_hal_msp.o"
 "jbc_soldering_station\stm32f1xx_hal_timebase_tim.o"
 "jbc_soldering_station\init.o"
+"jbc_soldering_station\tm1637.o"
+"jbc_soldering_station\tm1637_periph.o"
 --library_type=microlib --strict --scatter "jbc_soldering_station\jbc_soldering_station.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

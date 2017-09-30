@@ -1,7 +1,8 @@
+#include "cmsis_os.h"
 #include "init.h"
 #include "main.h"
 #include "stm32f1xx_hal.h"
-#include "cmsis_os.h"
+#include "tm1637.h"
 
 
 
@@ -23,6 +24,9 @@ int main(void) {
     MX_TIM1_Init();
 
     MX_NVIC_Init();
+
+    tm1637_init();
+    tm1637_display_dec(1134, 1);
 
     osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);

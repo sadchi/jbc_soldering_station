@@ -1,3 +1,4 @@
 *.d
 *.o
 *.crf
+MDK-ARM/JLinkLog.txt
