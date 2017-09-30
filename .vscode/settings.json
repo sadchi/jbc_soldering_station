@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stm32f1xx_hal.h": "c",
+        "cmsis_os.h": "c",
+        "init.h": "c"
+    }
+}
