@@ -1,6 +1,10 @@
+#include "Freertos.h"
 #include "stm32f1xx_hal.h"
 #include "tm1637.h"
 #include "tm1637_periph.h"
+#include "queue.h"
+#include "task.h"
+
 
 
 static const char segment_map[] = {
@@ -8,6 +12,9 @@ static const char segment_map[] = {
     0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71, // 8-9, A-F
     0x00
 };
+
+static QueueHandle_t tm1637_q;
+static unsigned char tm1637_buf[4];
 
 
 static void tm1637_start(void) {
@@ -35,7 +42,7 @@ static void tm1637_read_result(void) {
     tm1637_clk_low();
 }
 
-void tm1637_write_byte(unsigned char b) {
+static void tm1637_write_byte(unsigned char b) {
     for (int i = 0; i < 8; ++i) {
         tm1637_clk_low();
         if (b & 0x01) tm1637_dio_high();
@@ -55,8 +62,34 @@ void tm1637_set_brightness(char brightness) {
     tm1637_stop();
 }
 
+
+void tm1637_task(void* params) {
+    while(1) {
+        xQueueReceive(tm1637_q, &tm1637_buf, portMAX_DELAY);
+
+        tm1637_start();
+        tm1637_write_byte(0x40);
+        tm1637_read_result();
+        tm1637_stop();
+
+        tm1637_start();
+        tm1637_write_byte(0xc0);
+        tm1637_read_result();
+
+        for (int i = 0; i < 4; ++i) {
+            tm1637_write_byte(tm1637_buf[3 - i]);
+            tm1637_read_result();
+        }
+
+        tm1637_stop();
+
+    }
+}
+
 void tm1637_init(void) {
+    tm1637_q = xQueueCreate(10, sizeof(tm1637_buf));
     tm1637_set_brightness(TM1637_BRIGHTNESS);
+    xTaskCreate(tm1637_task,NULL,configMINIMAL_STACK_SIZE,NULL,1,NULL);
 }
 
 void tm1637_display_dec(int v, int separator) {
@@ -71,20 +104,6 @@ void tm1637_display_dec(int v, int separator) {
         v /= 10;
     }
 
-    tm1637_start();
-    tm1637_write_byte(0x40);
-    tm1637_read_result();
-    tm1637_stop();
-
-    tm1637_start();
-    tm1637_write_byte(0xc0);
-    tm1637_read_result();
-
-    for (int i = 0; i < 4; ++i) {
-        tm1637_write_byte(digit[3 - i]);
-        tm1637_read_result();
-    }
-
-    tm1637_stop();
+    xQueueSend(tm1637_q, digit, portMAX_DELAY);
 }
 

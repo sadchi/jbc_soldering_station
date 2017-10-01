@@ -3,6 +3,8 @@
         "stm32f1xx_hal.h": "c",
         "cmsis_os.h": "c",
         "init.h": "c",
-        "tm1637_periph.h": "c"
+        "tm1637_periph.h": "c",
+        "thermo_settings_periph.h": "c",
+        "main.h": "c"
     }
 }
