@@ -19,14 +19,14 @@
 #define TM1637_CLK_GPIO_Port GPIOB
 #define TM1637_IO_Pin GPIO_PIN_15
 #define TM1637_IO_GPIO_Port GPIOB
-#define BUZZ_Pin GPIO_PIN_8
-#define BUZZ_GPIO_Port GPIOA
 #define HEATER_Pin GPIO_PIN_10
 #define HEATER_GPIO_Port GPIOA
 #define TEMP_STAB_LED_Pin GPIO_PIN_11
 #define TEMP_STAB_LED_GPIO_Port GPIOA
 #define GET_TEMP_LED_Pin GPIO_PIN_12
 #define GET_TEMP_LED_GPIO_Port GPIOA
+#define BUZZ_Pin GPIO_PIN_15
+#define BUZZ_GPIO_Port GPIOA
 #define TOF_SCL_Pin GPIO_PIN_6
 #define TOF_SCL_GPIO_Port GPIOB
 #define TOF_SDA_Pin GPIO_PIN_7
@@ -45,7 +45,7 @@ void MX_NVIC_Init(void);
 void MX_I2C1_Init(void);
 void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
-void MX_TIM1_Init(void);
+void MX_TIM2_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void MX_GPIO_Init(void);
 
