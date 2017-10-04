@@ -5,8 +5,8 @@
 
 #define START_BIT 1
 #define STOP_BIT  2
-#define DURATION_MS 250
-#define INTERVAL_MS 2000
+#define DURATION_MS 100
+#define INTERVAL_MS 3000
 
 
 static TaskHandle_t buzzer_handler;
