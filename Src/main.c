@@ -1,7 +1,9 @@
+#include "buzzer.h"
 #include "cmsis_os.h"
 #include "init.h"
 #include "main.h"
 #include "stm32f1xx_hal.h"
+#include "thermo_controller.h"
 #include "thermo_settings.h"
 #include "tm1637.h"
 
@@ -26,8 +28,10 @@ int main(void) {
 
     MX_NVIC_Init();
 
+    buzzer_init();
     tm1637_init();
     thermo_settings_init();
+    thermo_controller_init();
 
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, 100);

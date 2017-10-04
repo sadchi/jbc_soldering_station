@@ -579,6 +579,16 @@
               <FileType>1</FileType>
               <FilePath>..\Src\thermo_settings_periph.c</FilePath>
             </File>
+            <File>
+              <FileName>buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer_periph.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\buzzer_periph.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

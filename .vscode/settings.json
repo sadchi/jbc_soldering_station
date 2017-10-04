@@ -5,6 +5,7 @@
         "init.h": "c",
         "tm1637_periph.h": "c",
         "thermo_settings_periph.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "thermo_controller.h": "c"
     }
 }
