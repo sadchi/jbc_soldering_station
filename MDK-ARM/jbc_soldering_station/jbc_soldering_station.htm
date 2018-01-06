@@ -3,7 +3,7 @@
 <title>Static Call Graph - [jbc_soldering_station\jbc_soldering_station.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image jbc_soldering_station\jbc_soldering_station.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Oct 04 20:37:56 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sun Jan 07 01:10:49 2018
 <BR><P>
 <H3>Maximum Stack Usage =        204 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -400,6 +400,7 @@ Global Symbols
 
 <P><STRONG><a name="[7e]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_task
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_dio_low
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_dio_high
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_clk_low
@@ -630,7 +631,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_init
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_init
 </UL>
 
 <P><STRONG><a name="[73]"></a>HAL_TIM_PWM_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Init))
@@ -657,7 +658,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_on
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_on
 </UL>
 
 <P><STRONG><a name="[77]"></a>HAL_TIM_PWM_Stop</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Stop))
@@ -665,7 +666,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_off
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_off
 </UL>
 
 <P><STRONG><a name="[69]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.HAL_TIM_PeriodElapsedCallback))
@@ -841,15 +842,24 @@ Global Symbols
 
 <P><STRONG><a name="[dc]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[88]"></a>buzz_init</STRONG> (Thumb, 34 bytes, Stack size 32 bytes, buzzer_periph.o(i.buzz_init))
+<P><STRONG><a name="[88]"></a>buzz</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, buzzer.o(i.buzz))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = buzz &rArr; xTaskGenericNotify
+</UL>
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_task
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_x2
+</UL>
+
+<P><STRONG><a name="[8a]"></a>buzz_init</STRONG> (Thumb, 34 bytes, Stack size 32 bytes, buzzer_periph.o(i.buzz_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = buzz_init &rArr; HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
 </UL>
 
-<P><STRONG><a name="[89]"></a>buzz_off</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, buzzer_periph.o(i.buzz_off))
+<P><STRONG><a name="[8b]"></a>buzz_off</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, buzzer_periph.o(i.buzz_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = buzz_off &rArr; HAL_TIM_PWM_Stop &rArr; TIM_CCxChannelCmd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Stop
@@ -857,7 +867,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_task
 </UL>
 
-<P><STRONG><a name="[8a]"></a>buzz_on</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, buzzer_periph.o(i.buzz_on))
+<P><STRONG><a name="[8c]"></a>buzz_on</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, buzzer_periph.o(i.buzz_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = buzz_on &rArr; HAL_TIM_PWM_Start &rArr; TIM_CCxChannelCmd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
@@ -865,29 +875,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_task
 </UL>
 
-<P><STRONG><a name="[8b]"></a>buzzer_init</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, buzzer.o(i.buzzer_init))
+<P><STRONG><a name="[8d]"></a>buzz_x2</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, buzzer.o(i.buzz_x2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = buzz_x2 &rArr; buzz &rArr; xTaskGenericNotify
+</UL>
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_task
+</UL>
+
+<P><STRONG><a name="[8e]"></a>buzzer_init</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, buzzer.o(i.buzzer_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = buzzer_init &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_init
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[8d]"></a>buzzer_start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, buzzer.o(i.buzzer_start))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = buzzer_start &rArr; xTaskGenericNotify
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_task
-</UL>
-
-<P><STRONG><a name="[8f]"></a>buzzer_stop</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, buzzer.o(i.buzzer_stop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = buzzer_stop &rArr; xTaskGenericNotify
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_task
 </UL>
 
 <P><STRONG><a name="[91]"></a>get_thermo_setting_val</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, thermo_settings_periph.o(i.get_thermo_setting_val))
@@ -909,7 +911,7 @@ Global Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_init
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_settings_init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_NVIC_Init
@@ -953,7 +955,7 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>osThreadCreate</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, cmsis_os.o(i.osThreadCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;makeFreeRtosPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -967,7 +969,7 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
@@ -984,7 +986,7 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>thermo_controller_init</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, thermo_controller.o(i.thermo_controller_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = thermo_controller_init &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -992,7 +994,7 @@ Global Symbols
 <P><STRONG><a name="[94]"></a>thermo_settings_init</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, thermo_settings.o(i.thermo_settings_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = thermo_settings_init &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1054,7 +1056,7 @@ Global Symbols
 <P><STRONG><a name="[93]"></a>tm1637_init</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, tm1637.o(i.tm1637_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = tm1637_init &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_set_brightness
 </UL>
@@ -1085,7 +1087,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[9f]"></a>uxListRemove</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
 <BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
@@ -1112,7 +1114,7 @@ Global Symbols
 
 <P><STRONG><a name="[a0]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
 <BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
@@ -1123,7 +1125,7 @@ Global Symbols
 
 <P><STRONG><a name="[a3]"></a>vPortEnterCritical</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
 <BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskNotifyWait
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
@@ -1137,7 +1139,7 @@ Global Symbols
 
 <P><STRONG><a name="[a5]"></a>vPortExitCritical</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
 <BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskNotifyWait
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
@@ -1156,7 +1158,7 @@ Global Symbols
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 
@@ -1207,7 +1209,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = vTaskStartScheduler &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 </UL>
@@ -1312,7 +1314,7 @@ Global Symbols
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[8c]"></a>xTaskCreate</STRONG> (Thumb, 86 bytes, Stack size 56 bytes, tasks.o(i.xTaskCreate))
+<P><STRONG><a name="[8f]"></a>xTaskCreate</STRONG> (Thumb, 86 bytes, Stack size 56 bytes, tasks.o(i.xTaskCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
@@ -1325,10 +1327,10 @@ Global Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_init
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_settings_init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thermo_controller_init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_init
 </UL>
 
-<P><STRONG><a name="[8e]"></a>xTaskGenericNotify</STRONG> (Thumb, 190 bytes, Stack size 24 bytes, tasks.o(i.xTaskGenericNotify))
+<P><STRONG><a name="[89]"></a>xTaskGenericNotify</STRONG> (Thumb, 190 bytes, Stack size 24 bytes, tasks.o(i.xTaskGenericNotify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskGenericNotify
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
@@ -1336,8 +1338,7 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_stop
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_start
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz
 </UL>
 
 <P><STRONG><a name="[9b]"></a>xTaskGetSchedulerState</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetSchedulerState))
@@ -1485,7 +1486,7 @@ Local Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
 <P><STRONG><a name="[a6]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
@@ -1522,7 +1523,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
 <P><STRONG><a name="[d0]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
@@ -1602,22 +1603,23 @@ Local Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tm1637_set_brightness
 </UL>
 
-<P><STRONG><a name="[38]"></a>buzzer_task</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, buzzer.o(i.buzzer_task))
+<P><STRONG><a name="[38]"></a>buzzer_task</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, buzzer.o(i.buzzer_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = buzzer_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskNotifyWait
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_on
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_off
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_on
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_off
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> buzzer.o(i.buzzer_init)
 </UL>
-<P><STRONG><a name="[3a]"></a>thermo_controller_task</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, thermo_controller.o(i.thermo_controller_task))
+<P><STRONG><a name="[3a]"></a>thermo_controller_task</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, thermo_controller.o(i.thermo_controller_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = thermo_controller_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_stop
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzer_start
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz_x2
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzz
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> thermo_controller.o(i.thermo_controller_init)
 </UL><P>

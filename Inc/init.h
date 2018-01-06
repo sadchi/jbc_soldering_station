@@ -1,7 +1,6 @@
 #ifndef __INIT_H
 #define __INIT_H
 
-
 #define ONBOARD_LED_Pin GPIO_PIN_13
 #define ONBOARD_LED_GPIO_Port GPIOC
 #define EXTRA_OUT1_Pin GPIO_PIN_0

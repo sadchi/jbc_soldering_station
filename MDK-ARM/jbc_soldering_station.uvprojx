@@ -594,6 +594,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\thermo_controller.c</FilePath>
             </File>
+            <File>
+              <FileName>config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\config.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

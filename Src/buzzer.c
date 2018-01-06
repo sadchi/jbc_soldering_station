@@ -3,10 +3,8 @@
 #include "freertos.h"
 #include "task.h"
 
-#define START_BIT 1
-#define STOP_BIT  2
 #define DURATION_MS 100
-#define INTERVAL_MS 3000
+#define INTERVAL_MS 100
 
 
 static TaskHandle_t buzzer_handler;
@@ -18,30 +16,29 @@ void buzzer_init() {
     xTaskCreate(buzzer_task, NULL, configMINIMAL_STACK_SIZE, NULL, 1, &buzzer_handler);
 }
 
-void buzzer_start() {
-    xTaskNotify(buzzer_handler, START_BIT, eSetBits);
+void buzz() {
+    xTaskNotify(buzzer_handler, 0, eIncrement);
 }
 
-void buzzer_stop() {
-    xTaskNotify(buzzer_handler, STOP_BIT, eSetBits);
+void buzz_x2() {
+    buzz();
+    buzz();
 }
 
 static void buzzer_task(void* params) {
-    static unsigned short work_request=0;
+    static unsigned short buzz_quantity=0;
     static unsigned int notification_val;
 
     while(1) {
-        if (xTaskNotifyWait(0, 0xffff, &notification_val, 0) == pdPASS ) {
-            if (notification_val & START_BIT) work_request++;
-            if (notification_val & STOP_BIT)  work_request--;
-        }
-        if(work_request > 0) {
+        if (xTaskNotifyWait(0, 0xffff, &notification_val, 0) == pdPASS && notification_val > 0)
+            buzz_quantity = buzz_quantity + notification_val;
+
+        for(;buzz_quantity>0;buzz_quantity--){
             buzz_on();
             osDelay(DURATION_MS);
             buzz_off();
+            osDelay(INTERVAL_MS);
         }
-        osDelay(INTERVAL_MS);
     }
-
 }
 
