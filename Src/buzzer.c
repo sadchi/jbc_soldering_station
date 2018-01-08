@@ -30,7 +30,7 @@ static void buzzer_task(void* params) {
     static unsigned int notification_val;
 
     while(1) {
-        if (xTaskNotifyWait(0, 0xffff, &notification_val, 0) == pdPASS && notification_val > 0)
+        if (xTaskNotifyWait(0, 0xFFFFFFFF, &notification_val, 0) == pdPASS && notification_val > 0)
             buzz_quantity = buzz_quantity + notification_val;
 
         for(;buzz_quantity>0;buzz_quantity--){
