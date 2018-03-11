@@ -7,7 +7,7 @@
 #define DEBOUNCE_MS 10
 
 static volatile TimerHandle_t debounce=NULL;
-BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+BaseType_t xHigherPriorityTaskWoken = pdTRUE;
 
 void cradle_callback(TimerHandle_t timer) {
     if(HAL_GPIO_ReadPin(EXT_INT_GPIO_Port, EXT_INT_Pin) == GPIO_PIN_RESET) {

@@ -7,6 +7,7 @@
 #include "tm1637.h"
 
 static const int presets [] = {
+    3125, 900,
     1830, 300,
     50,    150
 };
@@ -23,10 +24,10 @@ void thermo_settings_task(void* params) {
         tm1637_display_dec(val,0);
 #endif
 
-        if( val < 3000 )
-            for(i=0; i<size; i++)
-                if (val >= (presets[i << 1]-50) && val < (presets[i << 1]+50))
-					set_user_temp(presets[(i << 1) + 1]);
+
+        for(i=0; i<size; i++)
+            if (val >= (presets[i << 1]-50) && val < (presets[i << 1]+50))
+                set_user_temp(presets[(i << 1) + 1]);
 
 
         osDelay(500);

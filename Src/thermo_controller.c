@@ -4,47 +4,122 @@
 #include "freertos.h"
 #include "init.h"
 #include "task.h"
+#include "thermo_controller_periph.h"
 #include "tm1637.h"
 
-#define MEASURE_INTERVAL 100
+#define MEASURE_INTERVAL_REGULAR 100
+#define MEASURE_INTERVAL_STANDBY 500
+
+#define PARKED        1
+#define UNPARKED      2
+#define PARKING_SHIFT 24
+#define STANDBY_TEMP  150
 
 static TaskHandle_t thermo_controller_handler;
+static unsigned char stand_by = 1, temp_latch = 1;
+static unsigned short user_temp=0, target_temp=STANDBY_TEMP;
 
 void set_user_temp(unsigned long t) {
-    xTaskNotify(thermo_controller_handler, t & 0xFFFF, eSetBits);
+    xTaskNotify(thermo_controller_handler, t & 0xFFF, eSetBits);
 }
 
 
 void set_target_temp(unsigned long t) {
-    set_user_temp( t << 16);
+    set_user_temp((t & 0xFFF) << 12);
 }
 
+void iron_parked(void) {
+    xTaskNotify(thermo_controller_handler, PARKED << PARKING_SHIFT, eSetBits);
+}
 
+void iron_left_parking(void) {
+    xTaskNotify(thermo_controller_handler, UNPARKED << PARKING_SHIFT, eSetBits);
+}
+
+void switch_to_stand_by(void) {
+    stand_by = 1;
+    target_temp = STANDBY_TEMP;
+}
+
+void switch_to_regular(void) {
+    stand_by = 0;
+    target_temp = user_temp;
+}
 
 static void thermo_controller_task(void* params) {
     static unsigned int notification_val;
-    static unsigned short user_temp=0, target_temp=150;
-
-
-
-
+    static unsigned long raw_temp, current_temp;
 
     while(1) {
 
         if (xTaskNotifyWait(0, 0xFFFFFFFF, &notification_val, 0) == pdPASS) {
-            user_temp   = (notification_val & 0xFFFF) ? (notification_val & 0xFFFF): user_temp;
-            target_temp = (notification_val >> 16) ? (notification_val >> 16)      : target_temp;
+            user_temp   = (notification_val  &  0xFFF)       ? (notification_val &  0xFFF)        : user_temp;
+            target_temp = ((notification_val >> 12) & 0xFFF) ? ((notification_val >> 12) & 0xFFF) : target_temp;
+
+            if ((notification_val >> PARKING_SHIFT) == PARKED)   switch_to_stand_by();
+            if ((notification_val >> PARKING_SHIFT) == UNPARKED) switch_to_regular();
         }
 
 
 
-#if DEBUG_DISPLAY == THERMO_CONTROLLER_DISPLAY
-        tm1637_display_dec(user_temp,0);
+
+
+        get_temp_on();
+        heater_off();
+        osDelay(5);
+        raw_temp = get_current_temp_raw();
+        current_temp = raw_temp;
+        heater_on();
+        get_temp_off();
+
+
+
+        if (stand_by) {
+            if(current_temp < target_temp) heater_on();
+            else heater_off();
+            osDelay(MEASURE_INTERVAL_STANDBY);
+        } else {
+
+            if(!temp_latch & (current_temp < ( target_temp - 40))) {
+                temp_latch = 1;
+                buzz();
+                temp_stab_off();
+            }
+
+            if (current_temp < target_temp) heater_on();
+
+            if (current_temp >= target_temp) {
+                heater_off();
+                temp_stab_on();
+                if(temp_latch) {
+                    buzz_x2();
+                    temp_latch =0;
+                }
+
+            }
+
+            osDelay(MEASURE_INTERVAL_REGULAR);
+        }
+
+
+
+
+#if DEBUG_DISPLAY == THERMO_CONTROLLER_MODE
+        tm1637_display_dec(stand_by,0);
 #endif
 
-        osDelay(MEASURE_INTERVAL);
+#if DEBUG_DISPLAY == THERMO_CONTROLLER_RAW_TEMP
+        tm1637_display_dec(raw_temp,0);
+#endif
 
-        // buzzer_start();
+#if DEBUG_DISPLAY == THERMO_CONTROLLER_TARGET_TEMP
+        tm1637_display_dec(target_temp,0);
+#endif
+
+
+
+
+
         // HAL_GPIO_WritePin(TEMP_STAB_LED_GPIO_Port, TEMP_STAB_LED_Pin, RESET);
         // HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port, GET_TEMP_LED_Pin, SET);
         // buzz();

@@ -1,5 +1,6 @@
 #include "buzzer.h"
 #include "cmsis_os.h"
+#include "cradle.h"
 #include "init.h"
 #include "main.h"
 #include "stm32f1xx_hal.h"
@@ -32,6 +33,7 @@ int main(void) {
     tm1637_init();
     thermo_settings_init();
     thermo_controller_init();
+    cradle_init();
 
     osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);

@@ -599,6 +599,31 @@
               <FileType>5</FileType>
               <FilePath>..\Inc\config.h</FilePath>
             </File>
+            <File>
+              <FileName>thermo_controller_periph.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\thermo_controller_periph.h</FilePath>
+            </File>
+            <File>
+              <FileName>thermo_controller_periph.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\thermo_controller_periph.c</FilePath>
+            </File>
+            <File>
+              <FileName>cradle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\cradle.c</FilePath>
+            </File>
+            <File>
+              <FileName>thermo_controller.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\thermo_controller.h</FilePath>
+            </File>
+            <File>
+              <FileName>cradle.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\cradle.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

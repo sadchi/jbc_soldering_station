@@ -61,7 +61,7 @@ void SystemClock_Config(void) {
 */
 void MX_NVIC_Init(void) {
     /* EXTI2_IRQn interrupt configuration */
-    HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
     HAL_NVIC_EnableIRQ(EXTI2_IRQn);
 }
 
@@ -218,8 +218,8 @@ void MX_GPIO_Init(void) {
 
     /*Configure GPIO pin : EXT_INT_Pin */
     GPIO_InitStruct.Pin = EXT_INT_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(EXT_INT_GPIO_Port, &GPIO_InitStruct);
 
     /*Configure GPIO pins : TM1637_CLK_Pin TM1637_IO_Pin */
