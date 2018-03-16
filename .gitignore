@@ -3,3 +3,6 @@
 *.crf
 MDK-ARM/JLinkLog.txt
 Inc/*.TMP
+pcb/*.nc
+pcb/*.DRL
+pcb/*.gbr
