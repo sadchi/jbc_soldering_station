@@ -7,7 +7,7 @@
 #include "tm1637.h"
 
 static const int presets [] = {
-    3125, 900,
+    3125, 300,
     1830, 300,
     50,    150
 };

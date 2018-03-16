@@ -118,6 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name>8уO</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -154,18 +155,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>6</LineNumber>
+          <LineNumber>78</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134225684</Address>
+          <Address>134228242</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\thermo_controller_periph.c</Filename>
+          <Filename>..\Src\thermo_controller.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\jbc_soldering_station\../Src/thermo_controller_periph.c\6</Expression>
+          <Expression>\\jbc_soldering_station\../Src/thermo_controller.c\78</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
@@ -204,7 +205,7 @@
           <Type>0</Type>
           <LineNumber>680</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229270</Address>
+          <Address>134229274</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>

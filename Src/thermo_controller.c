@@ -1,6 +1,7 @@
 #include "buzzer.h"
 #include "cmsis_os.h"
 #include "config.h"
+#include "cradle.h"
 #include "freertos.h"
 #include "init.h"
 #include "task.h"
@@ -8,12 +9,12 @@
 #include "tm1637.h"
 
 #define MEASURE_INTERVAL_REGULAR 100
-#define MEASURE_INTERVAL_STANDBY 500
+#define MEASURE_INTERVAL_STANDBY 20
 
 #define PARKED        1
 #define UNPARKED      2
 #define PARKING_SHIFT 24
-#define STANDBY_TEMP  150
+#define STANDBY_TEMP  1000
 
 static TaskHandle_t thermo_controller_handler;
 static unsigned char stand_by = 1, temp_latch = 1;
@@ -68,7 +69,7 @@ static void thermo_controller_task(void* params) {
         heater_off();
         osDelay(5);
         raw_temp = get_current_temp_raw();
-        current_temp = raw_temp;
+        current_temp =raw_temp;
         heater_on();
         get_temp_off();
 
@@ -116,24 +117,15 @@ static void thermo_controller_task(void* params) {
         tm1637_display_dec(target_temp,0);
 #endif
 
+#if DEBUG_DISPLAY == THERMO_CONTROLLER_CURRENT_TEMP
+        tm1637_display_dec(current_temp,0);
+#endif
 
-
-
-
-        // HAL_GPIO_WritePin(TEMP_STAB_LED_GPIO_Port, TEMP_STAB_LED_Pin, RESET);
-        // HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port, GET_TEMP_LED_Pin, SET);
-        // buzz();
-        // osDelay(3000);
-
-        // HAL_GPIO_WritePin(TEMP_STAB_LED_GPIO_Port, TEMP_STAB_LED_Pin, SET);
-        // buzz_x2();
-        // osDelay(3000);
-        // HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port, GET_TEMP_LED_Pin, RESET);
-        // osDelay(3000);
     }
 }
 
 void thermo_controller_init() {
     xTaskCreate(thermo_controller_task, NULL, configMINIMAL_STACK_SIZE, NULL, 1, &thermo_controller_handler);
+    stand_by = is_parked();
 }
 

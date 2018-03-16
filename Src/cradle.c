@@ -9,8 +9,13 @@
 static volatile TimerHandle_t debounce=NULL;
 BaseType_t xHigherPriorityTaskWoken = pdTRUE;
 
+
+unsigned char is_parked(void) {
+    return HAL_GPIO_ReadPin(EXT_INT_GPIO_Port, EXT_INT_Pin) == GPIO_PIN_RESET? 1:0;
+}
+
 void cradle_callback(TimerHandle_t timer) {
-    if(HAL_GPIO_ReadPin(EXT_INT_GPIO_Port, EXT_INT_Pin) == GPIO_PIN_RESET) {
+    if(is_parked()) {
         iron_parked();
     } else {
         iron_left_parking();
