@@ -32,7 +32,7 @@ void thermo_settings_task(void* params) {
                 set_user_temp(presets[(i << 1) + 1]);
 
 
-        osDelay(500);
+        osDelay(1000);
     }
 }
 
