@@ -6,8 +6,10 @@
 #include "thermo_settings_periph.h"
 #include "tm1637.h"
 
+#define RANGE 200
+
 static const int presets [] = {
-    3125, 300,
+    3200, 2300,
     1830, 300,
     50,    150
 };
@@ -26,7 +28,7 @@ void thermo_settings_task(void* params) {
 
 
         for(i=0; i<size; i++)
-            if (val >= (presets[i << 1]-50) && val < (presets[i << 1]+50))
+            if (val >= (presets[i << 1]-RANGE) && val < (presets[i << 1]+RANGE))
                 set_user_temp(presets[(i << 1) + 1]);
 
 

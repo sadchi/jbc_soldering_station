@@ -8,7 +8,7 @@
 #include "thermo_controller_periph.h"
 #include "tm1637.h"
 
-#define MEASURE_INTERVAL_REGULAR 100
+#define MEASURE_INTERVAL_REGULAR 5
 #define MEASURE_INTERVAL_STANDBY 20
 
 #define PARKED        1
@@ -17,8 +17,8 @@
 #define STANDBY_TEMP  1000
 
 static TaskHandle_t thermo_controller_handler;
-static unsigned char stand_by = 1, temp_latch = 1;
-static unsigned short user_temp=0, target_temp=STANDBY_TEMP;
+static unsigned char stand_by, temp_latch = 1;
+static unsigned short user_temp = 0, target_temp=STANDBY_TEMP;
 
 void set_user_temp(unsigned long t) {
     xTaskNotify(thermo_controller_handler, t & 0xFFF, eSetBits);
@@ -53,8 +53,14 @@ static void thermo_controller_task(void* params) {
 
     while(1) {
 
+        buzz();
+        temp_stab_on();
+
         if (xTaskNotifyWait(0, 0xFFFFFFFF, &notification_val, 0) == pdPASS) {
             user_temp   = (notification_val  &  0xFFF)       ? (notification_val &  0xFFF)        : user_temp;
+			
+			if (! stand_by) target_temp = user_temp;
+			
             target_temp = ((notification_val >> 12) & 0xFFF) ? ((notification_val >> 12) & 0xFFF) : target_temp;
 
             if ((notification_val >> PARKING_SHIFT) == PARKED)   switch_to_stand_by();
@@ -67,7 +73,7 @@ static void thermo_controller_task(void* params) {
 
         get_temp_on();
         heater_off();
-        osDelay(5);
+        // osDelay(5);
         raw_temp = get_current_temp_raw();
         current_temp =raw_temp;
         heater_on();
@@ -81,19 +87,19 @@ static void thermo_controller_task(void* params) {
             osDelay(MEASURE_INTERVAL_STANDBY);
         } else {
 
-            if(!temp_latch & (current_temp < ( target_temp - 40))) {
+            if((!temp_latch) && (current_temp < ( target_temp - 400))) {
                 temp_latch = 1;
-                buzz();
-                temp_stab_off();
+                // buzz();
+                // temp_stab_off();
             }
 
             if (current_temp < target_temp) heater_on();
 
             if (current_temp >= target_temp) {
                 heater_off();
-                temp_stab_on();
+                // temp_stab_on();
                 if(temp_latch) {
-                    buzz_x2();
+                    // buzz_x2();
                     temp_latch =0;
                 }
 
@@ -119,6 +125,10 @@ static void thermo_controller_task(void* params) {
 
 #if DEBUG_DISPLAY == THERMO_CONTROLLER_CURRENT_TEMP
         tm1637_display_dec(current_temp,0);
+#endif
+
+#if DEBUG_DISPLAY == THERMO_CONTROLLER_USER_TEMP
+        tm1637_display_dec(user_temp,0);
 #endif
 
     }

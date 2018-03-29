@@ -118,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>8уO</Name>
+          <Name>шр–</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -155,9 +155,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>78</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134228242</Address>
+          <Address>134228020</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -166,55 +166,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\Src\thermo_controller.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\jbc_soldering_station\../Src/thermo_controller.c\78</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>26</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218438</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\cradle.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\jbc_soldering_station\../Src/cradle.c\26</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>14</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134225508</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\cradle.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\jbc_soldering_station\../Src/cradle.c\14</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>680</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229274</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\jbc_soldering_station\../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c\680</Expression>
+          <Expression>\\jbc_soldering_station\../Src/thermo_controller.c\24</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -272,6 +224,16 @@
           <count>10</count>
           <WinNumber>1</WinNumber>
           <ItemText>target_temp</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>temp_latch</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>stand_by</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
