@@ -6,3 +6,4 @@ Inc/*.TMP
 pcb/*.nc
 pcb/*.DRL
 pcb/*.gbr
+pcb/*.ngc
