@@ -28,10 +28,10 @@ void get_temp_off(void) {
 
 unsigned int get_current_temp_raw(void) {
     unsigned int adc_val;
-    HAL_ADC_Start(&hadc2);
-    HAL_ADC_PollForConversion(&hadc2, 100);
+    // HAL_ADC_Start(&hadc2);
+    // HAL_ADC_PollForConversion(&hadc2, 100);
     adc_val = HAL_ADC_GetValue(&hadc2);
-    HAL_ADC_Stop(&hadc2);
+    // HAL_ADC_Stop(&hadc2);
     return adc_val;
 }
 
