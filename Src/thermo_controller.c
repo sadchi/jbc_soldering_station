@@ -80,7 +80,7 @@ static void thermo_controller_task(void* params) {
 
             if((!temp_latch) && (current_temp < ( target_temp - 400))) {
                 temp_latch = 1;
-                // buzz();
+                buzz();
                 // temp_stab_off();
             }
 
@@ -90,7 +90,7 @@ static void thermo_controller_task(void* params) {
                 heater_off();
                 // temp_stab_on();
                 if(temp_latch) {
-                    // buzz_x2();
+                    buzz_x2();
                     temp_latch =0;
                 }
 
