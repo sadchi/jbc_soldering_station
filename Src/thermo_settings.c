@@ -9,7 +9,7 @@
 #define RANGE 200
 
 static const int presets [] = {
-    3200, 2300,
+    3500, 2300,
     1830, 300,
     50,    150
 };

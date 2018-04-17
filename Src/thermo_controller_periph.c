@@ -26,12 +26,25 @@ void get_temp_off(void) {
     HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port, GET_TEMP_LED_Pin, GPIO_PIN_RESET);
 }
 
+
+void standby_led_on(void) {
+    HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port,  GET_TEMP_LED_Pin,  GPIO_PIN_SET);
+    HAL_GPIO_WritePin(TEMP_STAB_LED_GPIO_Port, TEMP_STAB_LED_Pin, GPIO_PIN_RESET);
+}
+
+void standby_led_off(void) {
+    HAL_GPIO_WritePin(GET_TEMP_LED_GPIO_Port,  GET_TEMP_LED_Pin,  GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(TEMP_STAB_LED_GPIO_Port, TEMP_STAB_LED_Pin, GPIO_PIN_SET);
+
+}
+
+
 unsigned int get_current_temp_raw(void) {
     unsigned int adc_val;
-    // HAL_ADC_Start(&hadc2);
-    // HAL_ADC_PollForConversion(&hadc2, 100);
+    HAL_ADC_Start(&hadc2);
+    HAL_ADC_PollForConversion(&hadc2, 100);
     adc_val = HAL_ADC_GetValue(&hadc2);
-    // HAL_ADC_Stop(&hadc2);
+    HAL_ADC_Stop(&hadc2);
     return adc_val;
 }
 

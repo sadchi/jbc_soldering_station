@@ -40,11 +40,13 @@ void iron_left_parking(void) {
 void switch_to_stand_by(void) {
     stand_by = 1;
     target_temp = STANDBY_TEMP;
+    standby_led_on();
 }
 
 void switch_to_regular(void) {
     stand_by = 0;
     target_temp = user_temp;
+    standby_led_off();
 }
 
 static void thermo_controller_task(void* params) {
@@ -52,9 +54,6 @@ static void thermo_controller_task(void* params) {
     static unsigned long raw_temp, current_temp;
 
     while(1) {
-
-        buzz();
-        temp_stab_on();
 
         if (xTaskNotifyWait(0, 0xFFFFFFFF, &notification_val, 0) == pdPASS) {
             user_temp   = (notification_val  &  0xFFF)       ? (notification_val &  0xFFF)        : user_temp;
@@ -67,19 +66,11 @@ static void thermo_controller_task(void* params) {
             if ((notification_val >> PARKING_SHIFT) == UNPARKED) switch_to_regular();
         }
 
-
-
-
-
-        get_temp_on();
         heater_off();
         // osDelay(5);
         raw_temp = get_current_temp_raw();
         current_temp =raw_temp;
         heater_on();
-        get_temp_off();
-
-
 
         if (stand_by) {
             if(current_temp < target_temp) heater_on();
@@ -137,5 +128,7 @@ static void thermo_controller_task(void* params) {
 void thermo_controller_init() {
     xTaskCreate(thermo_controller_task, NULL, configMINIMAL_STACK_SIZE, NULL, 1, &thermo_controller_handler);
     stand_by = is_parked();
+
+    if (stand_by) standby_led_on(); else standby_led_off();
 }
 

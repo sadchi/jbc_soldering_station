@@ -8,6 +8,8 @@ void temp_stab_on(void);
 void temp_stab_off(void);
 void get_temp_on(void);
 void get_temp_off(void);
+void standby_led_on(void);
+void standby_led_off(void);
 
 
 unsigned int get_current_temp_raw(void);
