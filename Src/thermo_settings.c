@@ -6,10 +6,10 @@
 #include "thermo_settings_periph.h"
 #include "tm1637.h"
 
-#define RANGE 200
+#define RANGE 300
 
 static const int presets [] = {
-    3500, 2300,
+    3600, 2300,
     1830, 300,
     50,    150
 };

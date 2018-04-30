@@ -33,7 +33,6 @@ int main(void) {
     tm1637_init();
     thermo_settings_init();
     thermo_controller_init();
-    cradle_init();
 
     osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);

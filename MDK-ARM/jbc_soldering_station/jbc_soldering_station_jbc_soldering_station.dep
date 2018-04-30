@@ -603,7 +603,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
 F (startup_stm32f103xb.s)(0x59D515E0)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ..\Inc-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 523" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list startup_stm32f103xb.lst --xref -o jbc_soldering_station\startup_stm32f103xb.o --depend jbc_soldering_station\startup_stm32f103xb.d)
-F (../Src/main.c)(0x5AA56AB5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\main.o --omf_browse jbc_soldering_station\main.crf --depend jbc_soldering_station\main.d)
+F (../Src/main.c)(0x5AE74DE5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\main.o --omf_browse jbc_soldering_station\main.crf --depend jbc_soldering_station\main.d)
 I (../Inc/buzzer.h)(0x5A514D68)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x59863E5A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x59863E5A)
@@ -622,7 +622,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x59863E5A)
-I (../Inc/cradle.h)(0x5AAC4221)
+I (../Inc/cradle.h)(0x5AE74DF6)
 I (../Inc/init.h)(0x5A514D68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x59863E57)
 I (../Inc/stm32f1xx_hal_conf.h)(0x59D515DF)
@@ -650,7 +650,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
-I (../Inc/thermo_controller.h)(0x5AA57215)
+I (../Inc/thermo_controller.h)(0x5AE74D9D)
 I (../Inc/thermo_settings.h)(0x5A50FC3E)
 I (../Inc/tm1637.h)(0x59D00F4E)
 F (../Src/freertos.c)(0x59D515DE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\freertos.o --omf_browse jbc_soldering_station\freertos.crf --depend jbc_soldering_station\freertos.d)
@@ -872,7 +872,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
-F (..\Src\thermo_settings.c)(0x5AD51B57)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_settings.o --omf_browse jbc_soldering_station\thermo_settings.crf --depend jbc_soldering_station\thermo_settings.d)
+F (..\Src\thermo_settings.c)(0x5AE73B46)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_settings.o --omf_browse jbc_soldering_station\thermo_settings.crf --depend jbc_soldering_station\thermo_settings.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/Freertos.h)(0x59863E5A)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F64D08)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
@@ -890,8 +890,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x59863E5A)
-I (../Inc/config.h)(0x5AD51C1D)
-I (../Inc/thermo_controller.h)(0x5AA57215)
+I (../Inc/config.h)(0x5AE74F36)
+I (../Inc/thermo_controller.h)(0x5AE74D9D)
 I (../Inc/thermo_settings_periph.h)(0x59D0C3E6)
 I (../Inc/tm1637.h)(0x59D00F4E)
 F (..\Src\thermo_settings_periph.c)(0x5ABE89A6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_settings_periph.o --omf_browse jbc_soldering_station\thermo_settings_periph.crf --depend jbc_soldering_station\thermo_settings_periph.d)
@@ -973,7 +973,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
-F (..\Src\thermo_controller.c)(0x5AD65732)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_controller.o --omf_browse jbc_soldering_station\thermo_controller.crf --depend jbc_soldering_station\thermo_controller.d)
+F (..\Src\thermo_controller.c)(0x5AE74F21)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_controller.o --omf_browse jbc_soldering_station\thermo_controller.crf --depend jbc_soldering_station\thermo_controller.d)
 I (../Inc/buzzer.h)(0x5A514D68)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x59863E5A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x59863E5A)
@@ -992,8 +992,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x59863E5A)
-I (../Inc/config.h)(0x5AD51C1D)
-I (../Inc/cradle.h)(0x5AAC4221)
+I (../Inc/config.h)(0x5AE74F36)
+I (../Inc/cradle.h)(0x5AE74DF6)
 I (../Inc/init.h)(0x5A514D68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x59863E57)
 I (../Inc/stm32f1xx_hal_conf.h)(0x59D515DF)
@@ -1023,7 +1023,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
 I (../Inc/thermo_controller_periph.h)(0x5AD655E0)
 I (../Inc/tm1637.h)(0x59D00F4E)
-F (..\Inc\config.h)(0x5AD51C1D)()
+F (..\Inc\config.h)(0x5AE74F36)()
 F (..\Inc\thermo_controller_periph.h)(0x5AD655E0)()
 F (..\Src\thermo_controller_periph.c)(0x5AD655CC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\thermo_controller_periph.o --omf_browse jbc_soldering_station\thermo_controller_periph.crf --depend jbc_soldering_station\thermo_controller_periph.d)
 I (../Inc/init.h)(0x5A514D68)
@@ -1055,7 +1055,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
-F (..\Src\cradle.c)(0x5AAC421C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\cradle.o --omf_browse jbc_soldering_station\cradle.crf --depend jbc_soldering_station\cradle.d)
+F (..\Src\cradle.c)(0x5AE74DE8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include --C99-I.\RTE\_jbc_soldering_station-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o jbc_soldering_station\cradle.o --omf_browse jbc_soldering_station\cradle.crf --depend jbc_soldering_station\cradle.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x59863E5A)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F64D08)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
@@ -1093,9 +1093,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x59863E57)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x59863E57)
-I (../Inc/thermo_controller.h)(0x5AA57215)
+I (../Inc/thermo_controller.h)(0x5AE74D9D)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x59863E5B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x59863E5B)
-F (..\Inc\thermo_controller.h)(0x5AA57215)()
-F (..\Inc\cradle.h)(0x5AAC4221)()
+F (..\Inc\thermo_controller.h)(0x5AE74D9D)()
+F (..\Inc\cradle.h)(0x5AE74DF6)()
